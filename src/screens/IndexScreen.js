@@ -31,7 +31,7 @@ export default function IndexScreen() {
         onPress={() => addBlog()}
       >
         <View style={styles.addIcon}>
-          <Ionicons name="ios-add" size={70} color="#4CAF50" />
+          <Ionicons name="ios-add" size={60} color="#4CAF50" />
         </View>
       </TouchableOpacity>
     </View>
@@ -48,8 +48,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#000",
     padding: 15,
     margin: 15,
-    width: 80,
-    height: 80,
+    width: 60,
+    height: 60,
     justifyContent: "center",
     borderRadius: 50,
     alignItems: "center",
