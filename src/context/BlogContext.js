@@ -14,15 +14,15 @@ export const BlogProvider = ({ children }) => {
 
   const addBlog = () => {
     setBlogs([
-      ...blogPosts,
+      ...blogs,
       {
-        Title: `Blog ${blogPosts.length + 1}`,
-        Body: `Body for blog ${blogPosts.length + 1}`,
+        Title: `Blog ${blogs.length + 1}`,
+        Body: `Body for blog ${blogs.length + 1}`,
       },
     ]);
   };
 
-  return <BlogContext.Provider value={blogs}>{children}</BlogContext.Provider>;
+  return <BlogContext.Provider value={{ data: blogPosts, addBlog }}>{children}</BlogContext.Provider>;
 };
 
 export default BlogContext;
