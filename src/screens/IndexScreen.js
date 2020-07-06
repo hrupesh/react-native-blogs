@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import BlogContext from "../context/BlogContext";
+import { FlatList } from "react-native-gesture-handler";
 
 export default function IndexScreen() {
   const value = useContext(BlogContext);
@@ -9,7 +10,13 @@ export default function IndexScreen() {
   return (
     <View>
       <Text>Index Screen works! </Text>
-      <Text>Value = </Text>
+      <FlatList 
+        data={value}
+        keyExtractor={(blog) => blog.Title }
+        renderItem={(item) =>{
+            return <Text>{item}</Text>
+        }}
+      />
     </View>
   );
 }
