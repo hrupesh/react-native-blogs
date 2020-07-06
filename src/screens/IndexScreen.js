@@ -61,5 +61,10 @@ const styles = StyleSheet.create({
     container:{
         flex:1,
         backgroundColor:'#ddd'
+    },
+    list:{
+        height:900,
+        zIndex:99,
+        backgroundColor:'red'
     }
 });
