@@ -63,8 +63,6 @@ const styles = StyleSheet.create({
         backgroundColor:'#ddd'
     },
     list:{
-        height:900,
-        zIndex:99,
-        backgroundColor:'red'
+        padding:25
     }
 });

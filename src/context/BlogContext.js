@@ -10,7 +10,7 @@ export const BlogProvider = ({ children }) => {
     { Title: "Blog 4", Body: "Body for blog 4" },
   ];
 
-  const [blogs, setBlogs] = useState([]);
+  const [blogs, setBlogs] = useState(blogPosts);
 
   const addBlog = () => {
     setBlogs([
