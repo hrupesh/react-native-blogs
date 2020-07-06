@@ -6,9 +6,9 @@ import { Ionicons } from "@expo/vector-icons";
 
 export default function IndexScreen() {
   const { data, addBlog } = useContext(BlogContext);
-  console.log(data);
+//   console.log(data);
   const blogs = data;
-  console.log(blogs);
+//   console.log(blogs);
 
   return (
     <View style={styles.container}>
