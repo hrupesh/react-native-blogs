@@ -14,6 +14,7 @@ export default function IndexScreen() {
     <View style={styles.container}>
       <Text>Index Screen works! </Text>
       <FlatList
+      style={styles.list}
         data={blogs}
         keyExtractor={(blog) => blog.Title}
         renderItem={({ item }) => {
