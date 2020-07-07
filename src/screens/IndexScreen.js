@@ -19,9 +19,9 @@ export default function IndexScreen() {
         keyExtractor={(blog) => blog.Title}
         renderItem={({ item }) => {
           return (
-            <View>
-              <Text>{item.Title}</Text>
-              <Text>{item.Body}</Text>
+            <View style={styles.blog}>
+              <Text style={styles.title}>{item.Title}</Text>
+              <Text style={styles.body}>{item.Body}</Text>
             </View>
           );
         }}
@@ -71,4 +71,25 @@ const styles = StyleSheet.create({
   list: {
     padding: 25,
   },
+  blog:{
+      padding:20,
+      backgroundColor:'#fff',
+      marginBottom:10,
+      borderRadius:10,
+      shadowColor: "#000",
+    shadowOffset: {
+      width: 5,
+    },
+    shadowOpacity: 0.8,
+    shadowRadius: 5,
+    elevation: 10,
+  },
+  title:{
+    fontSize:18,
+    fontWeight:'bold',
+    letterSpacing:1
+  },
+  body:{
+    fontSize:16
+  }
 });
