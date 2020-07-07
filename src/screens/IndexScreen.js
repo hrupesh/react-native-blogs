@@ -19,9 +19,10 @@ export default function IndexScreen() {
         keyExtractor={(blog) => blog.Title}
         renderItem={({ item }) => {
           return (
-            <Text>
-              {item.Title} : {item.Body}
-            </Text>
+            <View>
+              <Text>{item.Title}</Text>
+              <Text>{item.Body}</Text>
+            </View>
           );
         }}
       />
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
     marginVertical: 20,
     marginHorizontal: 20,
-    justifyContent:'center',
+    justifyContent: "center",
   },
   addIcon: {
     backgroundColor: "#000",
