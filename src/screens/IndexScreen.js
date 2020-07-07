@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
     marginVertical: 20,
     marginHorizontal: 20,
-    
+    justifyContent:'center',
   },
   addIcon: {
     backgroundColor: "#000",
