@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useReducer } from "react";
 
 const BlogContext = React.createContext();
 
@@ -10,7 +10,9 @@ export const BlogProvider = ({ children }) => {
     { Title: "Blog 4", Body: "Body for blog 4" },
   ];
 
-  const [blogs, setBlogs] = useState(blogPosts);
+  const blogReducer = () => {};
+
+  const [blogs, dispatch] = useReducer(blogReducer, blogPosts);
 
   const addBlog = () => {
     setBlogs([
@@ -22,7 +24,11 @@ export const BlogProvider = ({ children }) => {
     ]);
   };
 
-  return <BlogContext.Provider value={{ data: blogs, addBlog }}>{children}</BlogContext.Provider>;
+  return (
+    <BlogContext.Provider value={{ data: blogs, addBlog }}>
+      {children}
+    </BlogContext.Provider>
+  );
 };
 
 export default BlogContext;
