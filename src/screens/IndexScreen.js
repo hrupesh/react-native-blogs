@@ -25,7 +25,7 @@ export default function IndexScreen() {
           );
         }}
       />
-      {/* <TouchableOpacity
+      <TouchableOpacity
         style={styles.addIconContainer}
         activeOpacity={0.7}
         onPress={() => addBlogPost()}
@@ -33,7 +33,7 @@ export default function IndexScreen() {
         <View style={styles.addIcon}>
           <Ionicons name="ios-add" size={60} color="#4CAF50" />
         </View>
-      </TouchableOpacity> */}
+      </TouchableOpacity>
     </View>
   );
 }
@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
     marginVertical: 20,
     marginHorizontal: 20,
+    
   },
   addIcon: {
     backgroundColor: "#000",
