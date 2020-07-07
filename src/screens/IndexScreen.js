@@ -5,7 +5,7 @@ import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 import { Ionicons } from "@expo/vector-icons";
 
 export default function IndexScreen() {
-  const { data, addBlog } = useContext(BlogContext);
+  const { data, addBlogPost } = useContext(BlogContext);
   //   console.log(data);
   const blogs = data;
   //   console.log(blogs);
@@ -25,15 +25,15 @@ export default function IndexScreen() {
           );
         }}
       />
-      <TouchableOpacity
+      {/* <TouchableOpacity
         style={styles.addIconContainer}
         activeOpacity={0.7}
-        onPress={() => addBlog()}
+        onPress={() => addBlogPost()}
       >
         <View style={styles.addIcon}>
           <Ionicons name="ios-add" size={60} color="#4CAF50" />
         </View>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
   );
 }

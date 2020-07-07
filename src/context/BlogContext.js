@@ -10,22 +10,29 @@ export const BlogProvider = ({ children }) => {
     { Title: "Blog 4", Body: "Body for blog 4" },
   ];
 
-  const blogReducer = () => {};
+  const blogReducer = (state, action) => {
+    switch (action.type) {
+      case "addBlog":
+        return [
+          ...state,
+          {
+            Title: `Blog ${state.length + 1}`,
+            Body: `Body for blog ${state.length + 1}`,
+          },
+        ];
+      default:
+        return state;
+    }
+  };
 
   const [blogs, dispatch] = useReducer(blogReducer, blogPosts);
 
-  const addBlog = () => {
-    setBlogs([
-      ...blogs,
-      {
-        Title: `Blog ${blogs.length + 1}`,
-        Body: `Body for blog ${blogs.length + 1}`,
-      },
-    ]);
+  const addBlogPost = () => {
+    dispatch({ type: "addBlog" });
   };
 
   return (
-    <BlogContext.Provider value={{ data: blogs, addBlog }}>
+    <BlogContext.Provider value={{ data: blogs, addBlogPost }}>
       {children}
     </BlogContext.Provider>
   );
