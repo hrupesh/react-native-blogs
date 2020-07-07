@@ -22,7 +22,12 @@ export default function IndexScreen() {
             <View style={styles.blog}>
               <Text style={styles.title}>{item.Title}</Text>
               <Text style={styles.body}>{item.Body}</Text>
-              <AntDesign style={styles.deleteIcon} name="delete" size={40} color="tomato" />
+              <AntDesign
+                style={styles.deleteIcon}
+                name="delete"
+                size={40}
+                color="tomato"
+              />
             </View>
           );
         }}
@@ -72,37 +77,37 @@ const styles = StyleSheet.create({
   list: {
     padding: 25,
   },
-  blog:{
-      justifyContent:'center',
-      padding:20,
-      backgroundColor:'#fff',
-      marginBottom:10,
-      borderRadius:10,
-      shadowColor: "#000",
+  blog: {
+    justifyContent: "center",
+    padding: 20,
+    backgroundColor: "#fff",
+    marginBottom: 10,
+    borderRadius: 10,
+    shadowColor: "#000",
     shadowOffset: {
       width: 5,
     },
     shadowOpacity: 0.8,
     shadowRadius: 5,
-    elevation: 10,
+    elevation: 4,
   },
-  title:{
-    fontSize:18,
-    fontWeight:'bold',
-    letterSpacing:1,
-    paddingBottom:10
+  title: {
+    fontSize: 18,
+    fontWeight: "bold",
+    letterSpacing: 1,
+    paddingBottom: 10,
   },
-  body:{
-    fontSize:16,
-    letterSpacing:0.5
+  body: {
+    fontSize: 16,
+    letterSpacing: 0.5,
   },
-  deleteIcon:{
-    position:'absolute',
-    right:25,
-    textShadowColor:'red',
-    textShadowOffset:{
-        height:0
+  deleteIcon: {
+    position: "absolute",
+    right: 25,
+    textShadowColor: "red",
+    textShadowOffset: {
+      height: 0,
     },
-    textShadowRadius:2,
-  }
+    textShadowRadius: 2,
+  },
 });
