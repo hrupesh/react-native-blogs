@@ -24,6 +24,7 @@ export const BlogProvider = ({ children }) => {
         return state;
     }
   };
+  console.log("yes!");
 
   const [blogs, dispatch] = useReducer(blogReducer, blogPosts);
 
