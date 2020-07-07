@@ -12,7 +12,7 @@ export default function IndexScreen() {
 
   return (
     <View style={styles.container}>
-      <Text>Index Screen works! </Text>
+      {/* <Text>Index Screen works! </Text> */}
       <FlatList
         style={styles.list}
         data={blogs}
