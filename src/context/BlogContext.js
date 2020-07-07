@@ -4,10 +4,10 @@ const BlogContext = React.createContext();
 
 export const BlogProvider = ({ children }) => {
   const blogPosts = [
-    { Title: "Blog 1", Body: "Body for blog 1" },
-    { Title: "Blog 2", Body: "Body for blog 2" },
-    { Title: "Blog 3", Body: "Body for blog 3" },
-    { Title: "Blog 4", Body: "Body for blog 4" },
+    { id: 1, Title: "Blog 1", Body: "Body for blog 1" },
+    { id: 2, Title: "Blog 2", Body: "Body for blog 2" },
+    { id: 3, Title: "Blog 3", Body: "Body for blog 3" },
+    { id: 4, Title: "Blog 4", Body: "Body for blog 4" },
   ];
 
   const blogReducer = (state, action) => {
@@ -16,6 +16,7 @@ export const BlogProvider = ({ children }) => {
         return [
           ...state,
           {
+            id: state.length + 1,
             Title: `Blog ${state.length + 1}`,
             Body: `Body for blog ${state.length + 1}`,
           },
