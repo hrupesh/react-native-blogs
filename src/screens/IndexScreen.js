@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import BlogContext from "../context/BlogContext";
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, AntDesign } from "@expo/vector-icons";
 
 export default function IndexScreen() {
   const { data, addBlogPost } = useContext(BlogContext);
@@ -22,6 +22,7 @@ export default function IndexScreen() {
             <View style={styles.blog}>
               <Text style={styles.title}>{item.Title}</Text>
               <Text style={styles.body}>{item.Body}</Text>
+              <AntDesign style={styles.deleteIcon} name="delete" size={40} color="tomato" />
             </View>
           );
         }}
@@ -72,6 +73,7 @@ const styles = StyleSheet.create({
     padding: 25,
   },
   blog:{
+      justifyContent:'center',
       padding:20,
       backgroundColor:'#fff',
       marginBottom:10,
@@ -87,9 +89,20 @@ const styles = StyleSheet.create({
   title:{
     fontSize:18,
     fontWeight:'bold',
-    letterSpacing:1
+    letterSpacing:1,
+    paddingBottom:10
   },
   body:{
-    fontSize:16
+    fontSize:16,
+    letterSpacing:0.5
+  },
+  deleteIcon:{
+    position:'absolute',
+    right:25,
+    textShadowColor:'red',
+    textShadowOffset:{
+        height:0
+    },
+    textShadowRadius:2,
   }
 });
