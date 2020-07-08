@@ -32,15 +32,15 @@ export default function IndexScreen() {
           );
         }}
       />
-      <TouchableOpacity
+      {/* <TouchableOpacity
         style={styles.addIconContainer}
         activeOpacity={0.7}
         onPress={() => addBlogPost()}
-      >
+      > */}
         <View style={styles.addIcon}>
           <Ionicons name="ios-add" size={60} color="#4CAF50" />
         </View>
-      </TouchableOpacity>
+      {/* </TouchableOpacity> */}
     </View>
   );
 }
@@ -63,12 +63,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
-      height: 50,
-      width: 50,
+      height: 5,
     },
-    shadowOpacity: 0.8,
-    shadowRadius: 5,
-    elevation: 6,
+    shadowOpacity: 0.5,
+    shadowRadius: 1,
+    elevation: 10,
+    position:'absolute',
+    bottom:25,
+    right:25
   },
   container: {
     flex: 1,
