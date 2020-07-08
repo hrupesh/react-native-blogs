@@ -37,9 +37,14 @@ export default function IndexScreen() {
         activeOpacity={0.7}
         onPress={() => addBlogPost()}
       > */}
-        <View style={styles.addIcon}>
-          <Ionicons name="ios-add" size={60} color="#4CAF50" />
-        </View>
+      <View style={styles.addIcon}>
+        <Ionicons
+          name="ios-add"
+          onPress={addBlogPost}
+          size={60}
+          color="#4CAF50"
+        />
+      </View>
       {/* </TouchableOpacity> */}
     </View>
   );
@@ -53,6 +58,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   addIcon: {
+    zIndex: 99,
     backgroundColor: "#000",
     padding: 15,
     margin: 15,
@@ -68,13 +74,13 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 1,
     elevation: 10,
-    position:'absolute',
-    bottom:25,
-    right:25
+    position: "absolute",
+    bottom: 25,
+    right: 25,
   },
   container: {
     flex: 1,
-    backgroundColor: "#ddd",
+    backgroundColor: "#444",
   },
   list: {
     padding: 25,
@@ -82,7 +88,7 @@ const styles = StyleSheet.create({
   blog: {
     justifyContent: "center",
     padding: 20,
-    backgroundColor: "#fff",
+    backgroundColor: "#000",
     marginBottom: 10,
     borderRadius: 10,
     shadowColor: "#000",
@@ -98,8 +104,10 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     letterSpacing: 1,
     paddingBottom: 10,
-  },
-  body: {
+    color:'white'
+},
+body: {
+    color:'white',
     fontSize: 16,
     letterSpacing: 0.5,
   },

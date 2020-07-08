@@ -3,6 +3,7 @@ import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import IndexScreen from "./src/screens/IndexScreen";
 import { BlogProvider } from "./src/context/BlogContext";
+import { StatusBar } from "expo-status-bar";
 
 const navigator = createStackNavigator(
   {
@@ -12,6 +13,14 @@ const navigator = createStackNavigator(
     initialRouteName: "Index",
     defaultNavigationOptions: {
       title: "Blogs ✍🏽",
+      headerStyle: {
+        backgroundColor: "#111",
+      },
+      headerTintColor: "#fff",
+      headerTitleStyle: {
+        fontWeight: "400",
+        textAlign:'center',
+      },
     },
   }
 );
@@ -22,6 +31,7 @@ export default () => {
   return (
     <BlogProvider>
       <App />
+      <StatusBar backgroundColor="#000a" ></StatusBar>
     </BlogProvider>
   );
 };
