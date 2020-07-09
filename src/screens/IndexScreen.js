@@ -29,15 +29,22 @@ export default function IndexScreen({ navigation }) {
               }
             >
               <View style={styles.blog}>
-                <Text style={styles.title}>{item.Title}</Text>
-                <Text style={styles.body}>{item.Body}</Text>
-                <AntDesign
-                  style={styles.deleteIcon}
-                  name="delete"
-                  size={40}
-                  color="tomato"
+                <View>
+                  <Text style={styles.title}>{item.Title}</Text>
+                  <Text style={styles.body}>{item.Body}</Text>
+                </View>
+                <TouchableOpacity
+                  style={styles.deleteIconContainer}
+                  activeOpacity={0}
                   onPress={() => deleteBlogPost(item.id)}
-                />
+                >
+                  <AntDesign
+                    style={styles.deleteIcon}
+                    name="delete"
+                    size={40}
+                    color="tomato"
+                  />
+                </TouchableOpacity>
               </View>
             </TouchableOpacity>
           );
@@ -97,7 +104,8 @@ const styles = StyleSheet.create({
     padding: 25,
   },
   blog: {
-    justifyContent: "center",
+    justifyContent: "space-around",
+    alignItems: "center",
     padding: 20,
     backgroundColor: "#000",
     marginBottom: 10,
@@ -108,7 +116,8 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.8,
     shadowRadius: 5,
-    elevation: 4,
+    elevation: 6,
+    flexDirection: "row",
   },
   title: {
     fontSize: 18,
@@ -122,9 +131,16 @@ const styles = StyleSheet.create({
     fontSize: 16,
     letterSpacing: 0.5,
   },
+  deleteIconContainer: {
+    textShadowColor: "red",
+    textShadowOffset: {
+      height: 0,
+    },
+    textShadowRadius: 2,
+  },
   deleteIcon: {
-    position: "absolute",
-    right: 25,
+    // position: "absolute",
+    // right: 25,
     textShadowColor: "red",
     textShadowOffset: {
       height: 0,
