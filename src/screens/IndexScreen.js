@@ -4,7 +4,7 @@ import BlogContext from "../context/BlogContext";
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 import { Ionicons, AntDesign } from "@expo/vector-icons";
 
-export default function IndexScreen() {
+export default function IndexScreen({ navigation }) {
   const { data, addBlogPost, deleteBlogPost } = useContext(BlogContext);
   //   console.log(data);
   const blogs = data;
@@ -21,7 +21,12 @@ export default function IndexScreen() {
         renderItem={({ item }) => {
           return (
             <TouchableOpacity
-                activeOpacity={0.7}
+              activeOpacity={0.7}
+              onPress={() =>
+                navigation.navigate("ViewBlog", {
+                  blog: item,
+                })
+              }
             >
               <View style={styles.blog}>
                 <Text style={styles.title}>{item.Title}</Text>

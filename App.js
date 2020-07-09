@@ -4,10 +4,12 @@ import { createStackNavigator } from "react-navigation-stack";
 import IndexScreen from "./src/screens/IndexScreen";
 import { BlogProvider } from "./src/context/BlogContext";
 import { StatusBar } from "expo-status-bar";
+import ViewBlog from "./src/screens/ViewBlog";
 
 const navigator = createStackNavigator(
   {
     Index: IndexScreen,
+    ViewBlog: ViewBlog
   },
   {
     initialRouteName: "Index",

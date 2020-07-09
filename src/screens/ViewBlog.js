@@ -3,9 +3,14 @@ import { StyleSheet, Text, View } from 'react-native'
 import BlogContext from "../context/BlogContext";
 
 export default function ViewBlog() {
+
+    // const { data } = useContext(BlogContext);
+
+
+
     return (
         <View>
-            <Text></Text>
+            <Text>Blog Screen Works!</Text>
         </View>
     )
 }
