@@ -21,7 +21,7 @@ export default function IndexScreen() {
         renderItem={({ item }) => {
           return (
             <View style={styles.blog}>
-              <Text style={styles.title}>{item.Title}</Text>
+              <Text style={styles.title}>{item.Title}{item.id}</Text>
               <Text style={styles.body}>{item.Body}</Text>
               <AntDesign
                 style={styles.deleteIcon}

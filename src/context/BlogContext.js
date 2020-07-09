@@ -3,7 +3,7 @@ import React, { useReducer } from "react";
 const BlogContext = React.createContext();
 
 export const BlogProvider = ({ children }) => {
-  const blogPosts = [{ id: "1", Title: "Blog 1", Body: "Body for blog 1" }];
+  const blogPosts = [{ id: ''+Math.floor(Math.random() * 99999999), Title: "Blog 1", Body: "Body for blog 1" }];
 
   const blogReducer = (state, action) => {
     switch (action.type) {
@@ -11,7 +11,7 @@ export const BlogProvider = ({ children }) => {
         return [
           ...state,
           {
-            id: `${state.length + 1}`,
+            id: ''+Math.floor(Math.random() * 99999999),
             Title: `Blog ${state.length + 1}`,
             Body: `Body for blog ${state.length + 1}`,
           },
