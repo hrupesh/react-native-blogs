@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     padding: 25,
   },
   blog: {
-    justifyContent: "space-around",
+    justifyContent: "space-between",
     alignItems: "center",
     padding: 20,
     backgroundColor: "#000",
@@ -137,6 +137,14 @@ const styles = StyleSheet.create({
       height: 0,
     },
     textShadowRadius: 2,
+    borderWidth:1,
+    borderColor:'tomato',
+    borderRadius:50,
+    padding:10,
+    height:80,
+    width:80,
+    alignItems:'center',
+    justifyContent:'center'
   },
   deleteIcon: {
     // position: "absolute",
