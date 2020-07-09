@@ -126,4 +126,3 @@ const styles = StyleSheet.create({
 console.log("Testing....");
 console.log("Testing....");
 console.log("Testing....");
-console.log("Testing....");
