@@ -20,17 +20,21 @@ export default function IndexScreen() {
         keyExtractor={(blog) => blog.id}
         renderItem={({ item }) => {
           return (
-            <View style={styles.blog}>
-              <Text style={styles.title}>{item.Title}</Text>
-              <Text style={styles.body}>{item.Body}</Text>
-              <AntDesign
-                style={styles.deleteIcon}
-                name="delete"
-                size={40}
-                color="tomato"
-                onPress={() => deleteBlogPost(item.id)}
-              />
-            </View>
+            <TouchableOpacity
+                activeOpacity={0.7}
+            >
+              <View style={styles.blog}>
+                <Text style={styles.title}>{item.Title}</Text>
+                <Text style={styles.body}>{item.Body}</Text>
+                <AntDesign
+                  style={styles.deleteIcon}
+                  name="delete"
+                  size={40}
+                  color="tomato"
+                  onPress={() => deleteBlogPost(item.id)}
+                />
+              </View>
+            </TouchableOpacity>
           );
         }}
       />

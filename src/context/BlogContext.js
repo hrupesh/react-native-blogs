@@ -17,7 +17,7 @@ export const BlogProvider = ({ children }) => {
           },
         ];
       case "deleteBlog":
-        return state.filter((state) => state.id != action.payload);
+        return state.filter((state) => state.id !== action.payload);
       default:
         return state;
     }
