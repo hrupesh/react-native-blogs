@@ -31,7 +31,7 @@ export default () => {
   return (
     <BlogProvider>
       <App />
-      <StatusBar backgroundColor="#000a" ></StatusBar>
+      <StatusBar backgroundColor="#ccc" ></StatusBar>
     </BlogProvider>
   );
 };

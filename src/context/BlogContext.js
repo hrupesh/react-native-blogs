@@ -3,9 +3,7 @@ import React, { useReducer } from "react";
 const BlogContext = React.createContext();
 
 export const BlogProvider = ({ children }) => {
-  const blogPosts = [
-    { id: '1', Title: "Blog 1", Body: "Body for blog 1" },
-  ];
+  const blogPosts = [{ id: "1", Title: "Blog 1", Body: "Body for blog 1" }];
 
   const blogReducer = (state, action) => {
     switch (action.type) {
@@ -18,6 +16,8 @@ export const BlogProvider = ({ children }) => {
             Body: `Body for blog ${state.length + 1}`,
           },
         ];
+      case "deleteBlog":
+        return state.filter((state) => state.id != action.payload);
       default:
         return state;
     }
@@ -29,8 +29,12 @@ export const BlogProvider = ({ children }) => {
     dispatch({ type: "addBlog" });
   };
 
+  const deleteBlogPost = (id) => {
+    dispatch({ type: "deleteBlog", payload: id });
+  };
+
   return (
-    <BlogContext.Provider value={{ data: blogs, addBlogPost }}>
+    <BlogContext.Provider value={{ data: blogs, addBlogPost, deleteBlogPost }}>
       {children}
     </BlogContext.Provider>
   );

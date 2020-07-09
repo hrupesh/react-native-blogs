@@ -5,7 +5,7 @@ import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 import { Ionicons, AntDesign } from "@expo/vector-icons";
 
 export default function IndexScreen() {
-  const { data, addBlogPost } = useContext(BlogContext);
+  const { data, addBlogPost, deleteBlogPost } = useContext(BlogContext);
   //   console.log(data);
   const blogs = data;
   //   console.log(blogs);
@@ -14,6 +14,7 @@ export default function IndexScreen() {
     <View style={styles.container}>
       {/* <Text>Index Screen works! </Text> */}
       <FlatList
+        showsVerticalScrollIndicator={false}
         style={styles.list}
         data={blogs}
         keyExtractor={(blog) => blog.id}
@@ -27,6 +28,7 @@ export default function IndexScreen() {
                 name="delete"
                 size={40}
                 color="tomato"
+                onPress={() => deleteBlogPost(item.id)}
               />
             </View>
           );
@@ -104,10 +106,10 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     letterSpacing: 1,
     paddingBottom: 10,
-    color:'white'
-},
-body: {
-    color:'white',
+    color: "white",
+  },
+  body: {
+    color: "white",
     fontSize: 16,
     letterSpacing: 0.5,
   },
@@ -121,3 +123,4 @@ body: {
     textShadowRadius: 2,
   },
 });
+console.log("Testing....");
