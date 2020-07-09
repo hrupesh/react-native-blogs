@@ -21,7 +21,7 @@ export default function IndexScreen({ navigation }) {
         renderItem={({ item }) => {
           return (
             <TouchableOpacity
-              activeOpacity={0.7}
+              activeOpacity={0.8}
               onPress={() =>
                 navigation.navigate("ViewBlog", {
                   blog: item,
