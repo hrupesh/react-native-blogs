@@ -157,4 +157,3 @@ const styles = StyleSheet.create({
   },
 });
 console.log("Test");
-console.log("Test");
