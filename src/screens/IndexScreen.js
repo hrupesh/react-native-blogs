@@ -156,4 +156,3 @@ const styles = StyleSheet.create({
     textShadowRadius: 2,
   },
 });
-console.log("Test");
