@@ -137,14 +137,14 @@ const styles = StyleSheet.create({
       height: 0,
     },
     textShadowRadius: 2,
-    borderWidth:1,
-    borderColor:'tomato',
-    borderRadius:50,
-    padding:10,
-    height:80,
-    width:80,
-    alignItems:'center',
-    justifyContent:'center'
+    borderWidth: 1,
+    borderColor: "tomato",
+    borderRadius: 50,
+    padding: 10,
+    height: 80,
+    width: 80,
+    alignItems: "center",
+    justifyContent: "center",
   },
   deleteIcon: {
     // position: "absolute",
@@ -156,3 +156,4 @@ const styles = StyleSheet.create({
     textShadowRadius: 2,
   },
 });
+console.log("Test");
