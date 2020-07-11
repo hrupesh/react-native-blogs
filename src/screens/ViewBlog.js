@@ -11,6 +11,7 @@ export default function ViewBlog({ navigation }) {
   const deletethisBlog = () => {
     deleteBlogPost(blog.id);
     navigation.navigate("Index");
+    console.log();
   };
 
   return (
@@ -18,12 +19,7 @@ export default function ViewBlog({ navigation }) {
       <View style={styles.blogCard}>
         <Text style={styles.title}>{blog.Title}</Text>
         <Text style={styles.body}>{blog.Body}</Text>
-        <Button
-          title="Delete"
-          onPress={
-            (() => deletethisBlog() )
-          }
-        />
+        <Button title="Delete" onPress={() => deletethisBlog()} />
       </View>
     </View>
   );
