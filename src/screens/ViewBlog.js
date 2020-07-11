@@ -11,7 +11,6 @@ export default function ViewBlog({ navigation }) {
   const deletethisBlog = () => {
     deleteBlogPost(blog.id);
     navigation.navigate("Index");
-    console.log();
   };
 
   return (
