@@ -23,7 +23,6 @@ export default function ViewBlog({ navigation }) {
     </View>
   );
 }
-cons
 
 const styles = StyleSheet.create({
   container: {
