@@ -74,8 +74,7 @@ IndexScreen.navigationOptions = () => {
       <Feather
         style={styles.headeraddIcon}
         name="plus"
-        size={30}
-        onPress={}
+        size={40}
         color="white"
       />
     ),
@@ -89,7 +88,9 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     justifyContent: "center",
   },
-  headeraddIcon: {},
+  headeraddIcon: {
+    margin:10
+  },
   addIcon: {
     zIndex: 99,
     backgroundColor: "#000",
