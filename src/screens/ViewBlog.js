@@ -5,11 +5,20 @@ import BlogContext from "../context/BlogContext";
 export default function ViewBlog({ navigation }) {
   const { data, deleteBlogPost } = useContext(BlogContext);
 
-  const { blog } = navigation.state.params;
+  // const { blog } = navigation.state.params;
+
+  // console.log(data);
+  // console.log(navigation);
+
+  const blog = data.find((blog) => blog.id === navigation.getParam("id"));
+
+  // console.log(blog);
 
   const deletethisBlog = () => {
-    deleteBlogPost(blog.id);
     navigation.navigate("Index");
+    setTimeout(() => {
+      deleteBlogPost(blog.id)
+    }, 1000);
   };
 
   return (

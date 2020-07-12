@@ -24,7 +24,7 @@ export default function IndexScreen({ navigation }) {
               activeOpacity={0.8}
               onPress={() =>
                 navigation.navigate("ViewBlog", {
-                  blog: item,
+                  id: item.id,
                 })
               }
             >
