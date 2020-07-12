@@ -9,6 +9,7 @@ export default function ViewBlog({ navigation }) {
   console.log("sadffd");
   console.log("sadffd");
   console.log("sadffd");
+  console.log("sadffd");
 
   const deletethisBlog = () => {
     deleteBlogPost(blog.id);
