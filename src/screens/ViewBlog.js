@@ -8,6 +8,7 @@ export default function ViewBlog({ navigation }) {
   const { blog } = navigation.state.params;
   console.log("sadffd");
   console.log("sadffd");
+  console.log("sadffd");
 
   const deletethisBlog = () => {
     deleteBlogPost(blog.id);
