@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native'
 export default function CreateScreen() {
     return (
         <View>
-            <Text></Text>
+            <Text>Create Screen Works!</Text>
         </View>
     )
 }

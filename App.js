@@ -5,11 +5,13 @@ import IndexScreen from "./src/screens/IndexScreen";
 import { BlogProvider } from "./src/context/BlogContext";
 import { StatusBar } from "expo-status-bar";
 import ViewBlog from "./src/screens/ViewBlog";
+import CreateScreen from "./src/screens/CreateScreen";
 
 const navigator = createStackNavigator(
   {
     Index: IndexScreen,
-    ViewBlog: ViewBlog
+    ViewBlog: ViewBlog,
+    Create: CreateScreen
   },
   {
     initialRouteName: "Index",

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import BlogContext from "../context/BlogContext";
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
-import { Ionicons, AntDesign } from "@expo/vector-icons";
+import { Ionicons, AntDesign, Feather } from "@expo/vector-icons";
 
 export default function IndexScreen({ navigation }) {
   const { data, addBlogPost, deleteBlogPost } = useContext(BlogContext);
@@ -68,6 +68,20 @@ export default function IndexScreen({ navigation }) {
   );
 }
 
+IndexScreen.navigationOptions = () => {
+  return {
+    headerRight: () => (
+      <Feather
+        style={styles.headeraddIcon}
+        name="plus"
+        size={30}
+        onPress={}
+        color="white"
+      />
+    ),
+  };
+};
+
 const styles = StyleSheet.create({
   addIconContainer: {
     alignItems: "flex-end",
@@ -75,6 +89,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     justifyContent: "center",
   },
+  headeraddIcon: {},
   addIcon: {
     zIndex: 99,
     backgroundColor: "#000",
