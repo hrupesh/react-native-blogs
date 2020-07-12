@@ -6,7 +6,6 @@ export default function ViewBlog({ navigation }) {
   const { data, deleteBlogPost } = useContext(BlogContext);
 
   const { blog } = navigation.state.params;
-  console.log(blog);
 
   const deletethisBlog = () => {
     deleteBlogPost(blog.id);
