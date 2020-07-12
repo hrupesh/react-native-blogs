@@ -68,15 +68,17 @@ export default function IndexScreen({ navigation }) {
   );
 }
 
-IndexScreen.navigationOptions = () => {
+IndexScreen.navigationOptions = ({ navigation }) => {
   return {
     headerRight: () => (
-      <Feather
-        style={styles.headeraddIcon}
-        name="plus"
-        size={40}
-        color="white"
-      />
+      <TouchableOpacity onPress={() => navigation.navigate("Create")}>
+        <Feather
+          style={styles.headeraddIcon}
+          name="plus"
+          size={40}
+          color="white"
+        />
+      </TouchableOpacity>
     ),
   };
 };
@@ -89,7 +91,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   headeraddIcon: {
-    margin:10
+    padding: 10,
   },
   addIcon: {
     zIndex: 99,

@@ -22,8 +22,10 @@ const navigator = createStackNavigator(
       },
       headerTintColor: "#fff",
       headerTitleStyle: {
-        fontWeight: "400",
+        fontWeight: "100",
+        fontSize:24,
         textAlign:'center',
+        letterSpacing:2
       },
     },
   }
