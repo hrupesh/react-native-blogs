@@ -35,18 +35,18 @@ export default function ViewBlog({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#444",
+    backgroundColor: "#673AFF",
   },
   title: {
     fontSize: 32,
     fontWeight: "bold",
     letterSpacing: 2,
     paddingBottom: 30,
-    color: "white",
+    // color: "white",
   },
   body: {
     paddingBottom: 30,
-    color: "white",
+    // color: "white",
     fontSize: 20,
     letterSpacing: 0.5,
   },
@@ -54,10 +54,12 @@ const styles = StyleSheet.create({
     margin: 25,
     padding: 25,
     // paddingVertical: 30,
-    backgroundColor: "#111",
-    borderTopColor: "red",
-    borderTopWidth: 1,
-    borderBottomLeftRadius: 5,
-    borderBottomRightRadius: 5,
+    backgroundColor: "#eee",
+    // borderTopColor: "#448AFF",
+    // borderTopWidth: 5,
+    // borderBottomLeftRadius: 10,
+    // borderBottomRightRadius: 10,
+    borderRadius:10,
+    elevation:10
   },
 });

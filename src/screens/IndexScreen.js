@@ -55,14 +55,14 @@ export default function IndexScreen({ navigation }) {
         activeOpacity={0.7}
         onPress={() => addBlogPost()}
       > */}
-      <View style={styles.addIcon}>
+      {/* <View style={styles.addIcon}>
         <Ionicons
           name="ios-add"
           onPress={addBlogPost}
           size={60}
           color="#4CAF50"
         />
-      </View>
+      </View> */}
       {/* </TouchableOpacity> */}
     </View>
   );

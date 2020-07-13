@@ -23,10 +23,17 @@ export default function CreateScreen({ navigation }) {
   const submitHandler = (title, body) => {
     if (title && body) {
       addBlogPost([title, body]);
-      Alert.alert("Success", "Blog is added ✅");
-      setTimeout(() => {
-        navigation.navigate("Index");
-      }, 1000);
+      //   Alert.prompt("Blog is added ✅","Continue");
+      //   Alert.alert("Success", "Blog is added ✅");
+      //   setTimeout(() => {
+      //     navigation.navigate("Index");
+      //   }, 1000);
+      Alert.alert(
+        "Suceess",
+        "Blog is Added ✅",
+        [{ text: "OK", onPress: () => navigation.navigate("Index") }],
+        { cancelable: false }
+      );
     }
     if (!title) {
       settitleError("Title is required * ");
