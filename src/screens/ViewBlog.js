@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View, Button, TouchableOpacity } from "react-native";
 import BlogContext from "../context/BlogContext";
 
 export default function ViewBlog({ navigation }) {
@@ -17,7 +17,7 @@ export default function ViewBlog({ navigation }) {
   const deletethisBlog = () => {
     navigation.navigate("Index");
     setTimeout(() => {
-      deleteBlogPost(blog.id)
+      deleteBlogPost(blog.id);
     }, 1000);
   };
 
@@ -26,7 +26,24 @@ export default function ViewBlog({ navigation }) {
       <View style={styles.blogCard}>
         <Text style={styles.title}>{blog.Title}</Text>
         <Text style={styles.body}>{blog.Body}</Text>
-        <Button title="Delete" onPress={() => deletethisBlog()} />
+        <TouchableOpacity
+          activeOpacity={0.6}
+          onPress={() => deletethisBlog()}
+          style={styles.btnContainer}
+        >
+          <View style={styles.editbtn}>
+            <Text style={styles.btnText}>Edit</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.6}
+          onPress={() => deletethisBlog()}
+          style={styles.btnContainer}
+        >
+          <View style={styles.deletebtn}>
+            <Text style={styles.btnText}>Delete</Text>
+          </View>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -36,6 +53,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#673AFF",
+    
   },
   title: {
     fontSize: 32,
@@ -43,12 +61,14 @@ const styles = StyleSheet.create({
     letterSpacing: 2,
     paddingBottom: 30,
     // color: "white",
+    textAlign:'center'
   },
   body: {
     paddingBottom: 30,
     // color: "white",
     fontSize: 20,
     letterSpacing: 0.5,
+    textAlign:'center'
   },
   blogCard: {
     margin: 25,
@@ -59,7 +79,33 @@ const styles = StyleSheet.create({
     // borderTopWidth: 5,
     // borderBottomLeftRadius: 10,
     // borderBottomRightRadius: 10,
-    borderRadius:10,
-    elevation:10
+    borderRadius: 10,
+    elevation: 10,
+    justifyContent:'center',
+  },
+  editbtn: {
+    marginTop: 5,
+    margin: 10,
+    backgroundColor: "#512DF8",
+    padding: 10,
+    borderRadius: 50,
+    elevation: 10,
+  },
+  deletebtn: {
+    marginTop: 15,
+    margin: 10,
+    backgroundColor: "#F4430F",
+    padding: 10,
+    borderRadius: 50,
+    elevation: 10,
+  },
+  btnText: {
+    textAlign: "center",
+    fontSize: 18,
+    color: "white",
+    letterSpacing: 4,
+    textTransform: "uppercase",
+    fontWeight: "bold",
+    fontFamily: "Roboto",
   },
 });
