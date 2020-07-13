@@ -28,9 +28,11 @@ export default function ViewBlog({ navigation }) {
         <Text style={styles.body}>{blog.Body}</Text>
         <TouchableOpacity
           activeOpacity={0.6}
-          onPress={() => navigation.navigate("Edit",{
-            id: blog.id
-          })}
+          onPress={() =>
+            navigation.navigate("Edit", {
+              id: blog.id,
+            })
+          }
           style={styles.btnContainer}
         >
           <View style={styles.editbtn}>
