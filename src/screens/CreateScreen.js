@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { StyleSheet, Text, View, TextInput } from "react-native";
+import { StyleSheet, Text, View, TextInput, ScrollView } from "react-native";
 import BlogContext from "../context/BlogContext";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
@@ -11,16 +11,22 @@ export default function CreateScreen() {
   const [body, setBody] = useState(null);
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.formContainer}>
         <Text style={styles.heading}>Add New Blog</Text>
         <View style={styles.inputContainer}>
           <Text style={styles.label}>Title</Text>
-          <TextInput style={styles.input} />
+          <TextInput
+            style={styles.input}
+            onChangeText={(text) => setTitle(text)}
+          />
         </View>
         <View style={styles.inputContainer}>
           <Text style={styles.label}>Body</Text>
-          <TextInput style={styles.input} />
+          <TextInput
+            style={styles.input}
+            onChangeText={(text) => setBody(text)}
+          />
         </View>
         <TouchableOpacity activeOpacity={0.6} style={styles.btnContainer}>
           <View style={styles.btn}>
@@ -28,13 +34,15 @@ export default function CreateScreen() {
           </View>
         </TouchableOpacity>
       </View>
-      <View style={styles.blogContainer}>
-        <View style={styles.inputContainer}>
-          <Text style={styles.title}>{title}</Text>
-          <Text style={styles.body}>{body}</Text>
+      {title || body ? (
+        <View style={styles.blogContainer}>
+          <View style={styles.inputContainer}>
+            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.body}>{body}</Text>
+          </View>
         </View>
-      </View>
-    </View>
+      ) : null}
+    </ScrollView>
   );
 }
 
