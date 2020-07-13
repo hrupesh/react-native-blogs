@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { StyleSheet, Text, View, TextInput } from "react-native";
 import BlogContext from "../context/BlogContext";
 import { TouchableOpacity } from "react-native-gesture-handler";
@@ -6,6 +6,9 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 export default function CreateScreen() {
   const { data, addBlogPost } = useContext(BlogContext);
   console.log(data);
+
+  const [title, setTitle] = useState(null);
+  const [body, setBody] = useState(null);
 
   return (
     <View style={styles.container}>
@@ -25,10 +28,10 @@ export default function CreateScreen() {
           </View>
         </TouchableOpacity>
       </View>
-      <View style={styles.formContainer}>
+      <View style={styles.blogContainer}>
         <View style={styles.inputContainer}>
-          <Text style={styles.title}>Title</Text>
-          <Text style={styles.body}>Title</Text>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.body}>{body}</Text>
         </View>
       </View>
     </View>
@@ -82,7 +85,14 @@ const styles = StyleSheet.create({
     fontSize: 22,
     color: "#512DA8",
     letterSpacing: 2,
-    fontWeight:'bold'
+    fontWeight: "bold",
+    paddingBottom: 5,
+  },
+  body: {
+    fontSize: 18,
+    color: "#512DA8",
+    letterSpacing: 1,
+    paddingVertical: 25,
   },
   input: {
     backgroundColor: "#eee",
@@ -109,5 +119,4 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontFamily: "Roboto",
   },
-
 });
