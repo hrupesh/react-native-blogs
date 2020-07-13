@@ -85,6 +85,5 @@ const styles = StyleSheet.create({
     letterSpacing: 4,
     textTransform: "uppercase",
     fontWeight: "bold",
-    fontFamily: "Nunito Sans Regular",
   },
 });
