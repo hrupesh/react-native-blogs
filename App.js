@@ -36,7 +36,7 @@ const App = createAppContainer(navigator);
 export default () => {
   return (
     <BlogProvider>
-      <App />
+      <App style={{ fontFamily: "Roboto" }} />
       <StatusBar backgroundColor="#ccc"></StatusBar>
     </BlogProvider>
   );

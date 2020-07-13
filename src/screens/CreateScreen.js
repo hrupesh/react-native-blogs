@@ -25,6 +25,12 @@ export default function CreateScreen() {
           </View>
         </TouchableOpacity>
       </View>
+      <View style={styles.formContainer}>
+        <View style={styles.inputContainer}>
+          <Text style={styles.title}>Title</Text>
+          <Text style={styles.body}>Title</Text>
+        </View>
+      </View>
     </View>
   );
 }
@@ -32,16 +38,18 @@ export default function CreateScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#444",
+    backgroundColor: "#673AFF",
     padding: 25,
   },
   heading: {
-    fontSize: 32,
+    fontSize: 24,
     letterSpacing: 2,
     color: "#512DA8",
-    textAlign: "left",
+    textAlign: "center",
     borderLeftColor: "#512DA8",
-    borderLeftWidth: 3,
+    borderLeftWidth: 5,
+    borderRightColor: "#512DA8",
+    borderRightWidth: 5,
     paddingHorizontal: 10,
     paddingVertical: 5,
     backgroundColor: "#ddd",
@@ -54,13 +62,27 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     elevation: 10,
   },
+  blogContainer: {
+    width: "100%",
+    backgroundColor: "#eee",
+    marginVertical: 15,
+    paddingVertical: 5,
+    borderRadius: 10,
+    elevation: 10,
+  },
   inputContainer: {
     padding: 25,
   },
   label: {
-    fontSize: 20,
+    fontSize: 18,
     color: "#512DA8",
     letterSpacing: 2,
+  },
+  title: {
+    fontSize: 22,
+    color: "#512DA8",
+    letterSpacing: 2,
+    fontWeight:'bold'
   },
   input: {
     backgroundColor: "#eee",
@@ -71,7 +93,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
   },
   btn: {
-    marginTop: 50,
+    marginTop: 30,
     margin: 25,
     backgroundColor: "#512DF8",
     padding: 10,
@@ -85,5 +107,7 @@ const styles = StyleSheet.create({
     letterSpacing: 4,
     textTransform: "uppercase",
     fontWeight: "bold",
+    fontFamily: "Roboto",
   },
+
 });
