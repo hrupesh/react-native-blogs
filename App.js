@@ -19,6 +19,7 @@ const navigator = createStackNavigator(
       title: "Blogs ✍🏽",
       headerStyle: {
         backgroundColor: "#111",
+        height:100
       },
       headerTintColor: "#fff",
       headerTitleStyle: {

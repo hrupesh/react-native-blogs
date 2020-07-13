@@ -7,12 +7,18 @@ export default function CreateScreen() {
   const { data, addBlogPost } = useContext(BlogContext);
   console.log(data);
 
+  const [titleError,settitleError] = useState(null);
+  const [bodyError,setbodyError] = useState(null);
+
   const [title, setTitle] = useState(null);
   const [body, setBody] = useState(null);
 
   const submitHandler = (title, body) => {
     if (title && body) {
       addBlogPost([title, body]);
+    }
+    if(!title){
+
     }
   };
 
@@ -37,6 +43,7 @@ export default function CreateScreen() {
             style={styles.input}
             onChangeText={(text) => setTitle(text)}
           />
+          <Text style={styles.error}> Title must not be empty </Text>
         </View>
         <View style={styles.inputContainer}>
           <Text style={styles.label}>Body</Text>
@@ -44,8 +51,13 @@ export default function CreateScreen() {
             style={styles.input}
             onChangeText={(text) => setBody(text)}
           />
+          <Text style={styles.error}> Body must not be empty </Text>
         </View>
-        <TouchableOpacity activeOpacity={0.6} style={styles.btnContainer}>
+        <TouchableOpacity
+          activeOpacity={0.6}
+          onPress={() => submitHandler(title, body)}
+          style={styles.btnContainer}
+        >
           <View style={styles.btn}>
             <Text style={styles.btnText}>Submit</Text>
           </View>
@@ -60,6 +72,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#673AFF",
     padding: 25,
+  },
+  error:{
+    color:'tomato',
+    paddingVertical:5,
+    marginLeft:5,
+    letterSpacing:0.5,
+    backgroundColor:'#FFCDD2'
   },
   heading: {
     fontSize: 24,

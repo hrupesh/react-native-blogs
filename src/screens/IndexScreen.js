@@ -76,7 +76,7 @@ IndexScreen.navigationOptions = ({ navigation }) => {
           style={styles.headeraddIcon}
           name="plus"
           size={40}
-          color="white"
+          color="green"
         />
       </TouchableOpacity>
     ),
