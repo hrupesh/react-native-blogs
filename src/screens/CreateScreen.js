@@ -12,11 +12,22 @@ export default function CreateScreen() {
 
   return (
     <ScrollView style={styles.container}>
+      {title || body ? (
+        <View style={styles.blogContainer}>
+          <View style={styles.inputContainer}>
+            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.body}>{body}</Text>
+          </View>
+        </View>
+      ) : null}
       <View style={styles.formContainer}>
         <Text style={styles.heading}>Add New Blog</Text>
         <View style={styles.inputContainer}>
           <Text style={styles.label}>Title</Text>
           <TextInput
+            autoCapitalize="words"
+            autoCorrect={false}
+            autoCompleteType="off"
             style={styles.input}
             onChangeText={(text) => setTitle(text)}
           />
@@ -34,14 +45,6 @@ export default function CreateScreen() {
           </View>
         </TouchableOpacity>
       </View>
-      {title || body ? (
-        <View style={styles.blogContainer}>
-          <View style={styles.inputContainer}>
-            <Text style={styles.title}>{title}</Text>
-            <Text style={styles.body}>{body}</Text>
-          </View>
-        </View>
-      ) : null}
     </ScrollView>
   );
 }
