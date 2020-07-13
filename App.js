@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import IndexScreen from "./src/screens/IndexScreen";
@@ -42,6 +42,17 @@ const fetchFonts = () => {
 const App = createAppContainer(navigator);
 
 export default () => {
+  const { loaded, setLoaded } = useState(false);
+
+  if(!loaded){
+    return(
+      <AppLoading 
+        startAsync={fetchFonts}
+        onFinish={() => setLoaded(true)}
+      />
+    )
+  }
+
   return (
     <BlogProvider>
       <App />
