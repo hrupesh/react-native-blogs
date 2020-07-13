@@ -7,8 +7,8 @@ export default function CreateScreen() {
   const { data, addBlogPost } = useContext(BlogContext);
   console.log(data);
 
-  const [titleError,settitleError] = useState(null);
-  const [bodyError,setbodyError] = useState(null);
+  const [titleError, settitleError] = useState(null);
+  const [bodyError, setbodyError] = useState(null);
 
   const [title, setTitle] = useState(null);
   const [body, setBody] = useState(null);
@@ -17,8 +17,11 @@ export default function CreateScreen() {
     if (title && body) {
       addBlogPost([title, body]);
     }
-    if(!title){
-
+    if (!title) {
+      settitleError("Title is required * ");
+    }
+    if (!body) {
+      settitleError("Body is required * ");
     }
   };
 
@@ -73,12 +76,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#673AFF",
     padding: 25,
   },
-  error:{
-    color:'tomato',
-    paddingVertical:5,
-    marginLeft:5,
-    letterSpacing:0.5,
-    backgroundColor:'#FFCDD2'
+  error: {
+    color: "#D32F2F",
+    paddingVertical: 5,
+    marginLeft: 5,
+    letterSpacing: 0.5,
+    backgroundColor: "#FFCDD2",
   },
   heading: {
     fontSize: 24,
