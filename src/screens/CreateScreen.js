@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TextInput } from "react-native";
 import BlogContext from "../context/BlogContext";
 
 export default function CreateScreen() {
@@ -10,7 +10,10 @@ export default function CreateScreen() {
     <View style={styles.container}>
       <View style={styles.formContainer}>
         <Text style={styles.heading}>Add New Blog</Text>
-        <View style={styles.seperator} ></View>
+        <View style={styles.inputContainer} >
+            <Text>Title</Text>
+            <TextInput  placeholder="Enter title here....." />
+        </View>
       </View>
     </View>
   );
@@ -25,19 +28,22 @@ const styles = StyleSheet.create({
   heading: {
     fontSize: 32,
     letterSpacing: 2,
-    color: "black",
+    color: "#512DA8",
     textAlign: "left",
     borderLeftColor:'#512DA8',
     borderLeftWidth:3,
     paddingHorizontal:10,
     paddingVertical:5,
-    backgroundColor:'#ddd'
+    backgroundColor:'#ddd',
   },
   formContainer: {
     width: "100%",
-    height: "30%",
     backgroundColor: "#eee",
     marginVertical: 15,
-    padding: 25,
+    paddingVertical: 25,
+    borderRadius:10
   },
+  inputContainer:{
+     padding:25
+  }
 });
