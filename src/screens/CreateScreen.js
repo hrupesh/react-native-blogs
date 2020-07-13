@@ -11,8 +11,12 @@ export default function CreateScreen() {
       <View style={styles.formContainer}>
         <Text style={styles.heading}>Add New Blog</Text>
         <View style={styles.inputContainer} >
-            <Text>Title</Text>
-            <TextInput  placeholder="Enter title here....." />
+            <Text style={styles.label}>Title</Text>
+            <TextInput  style={styles.input}  />
+        </View>
+        <View style={styles.inputContainer} >
+            <Text style={styles.label}>Body</Text>
+            <TextInput  style={styles.input}  />
         </View>
       </View>
     </View>
@@ -45,5 +49,18 @@ const styles = StyleSheet.create({
   },
   inputContainer:{
      padding:25
+  },
+  label:{
+      fontSize:20,
+      color:'#512DA8',
+      letterSpacing:2,
+  },
+  input:{
+      backgroundColor:'#eee',
+      height:50,
+      fontSize:18,
+      marginLeft:5,
+      borderBottomColor:'#512DA8',
+      borderBottomWidth:2,
   }
 });
