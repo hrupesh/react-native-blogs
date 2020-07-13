@@ -7,10 +7,26 @@ export default function CreateScreen() {
   console.log(data);
 
   return (
-    <View>
-      <Text>Create Screen Works!</Text>
+    <View style={styles.container}>
+      <Text  style={styles.heading}>Add New Blog</Text>
+      <View style={styles.formContainer}>
+            
+      </View>
     </View>
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    container:{
+        flex:1,
+        backgroundColor:'#444',
+        padding:25
+    },
+    heading:{
+        fontSize:32,
+        letterSpacing:2,
+        color:'white',
+        textAlign:'center',
+
+    }
+});
