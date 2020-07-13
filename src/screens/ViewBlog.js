@@ -28,7 +28,9 @@ export default function ViewBlog({ navigation }) {
         <Text style={styles.body}>{blog.Body}</Text>
         <TouchableOpacity
           activeOpacity={0.6}
-          onPress={() => deletethisBlog()}
+          onPress={() => navigation.navigate("Edit",{
+            id: blog.id
+          })}
           style={styles.btnContainer}
         >
           <View style={styles.editbtn}>
@@ -53,7 +55,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#673AFF",
-    
   },
   title: {
     fontSize: 32,
@@ -61,14 +62,14 @@ const styles = StyleSheet.create({
     letterSpacing: 2,
     paddingBottom: 30,
     // color: "white",
-    textAlign:'center'
+    textAlign: "center",
   },
   body: {
     paddingBottom: 30,
     // color: "white",
     fontSize: 20,
     letterSpacing: 0.5,
-    textAlign:'center'
+    textAlign: "center",
   },
   blogCard: {
     margin: 25,
@@ -81,7 +82,6 @@ const styles = StyleSheet.create({
     // borderBottomRightRadius: 10,
     borderRadius: 10,
     elevation: 10,
-    justifyContent:'center',
   },
   editbtn: {
     marginTop: 5,
