@@ -22,6 +22,12 @@ export const BlogProvider = ({ children }) => {
             Body: action.payload[1],
           },
         ];
+      case "editBlog":
+        return state = state.map(p =>
+          p.id === action.payload[0]
+            ? { ...p, Title: action.payload[1], Body: action.payload[2] }
+            : p
+        );
       case "deleteBlog":
         return state.filter((state) => state.id !== action.payload);
       default:
@@ -39,8 +45,12 @@ export const BlogProvider = ({ children }) => {
     dispatch({ type: "deleteBlog", payload: id });
   };
 
+  const editBlogPost = ([id, title, body]) => {
+    dispatch({ type: "editBlog", payload: [id,title, body] });
+  };
+
   return (
-    <BlogContext.Provider value={{ data: blogs, addBlogPost, deleteBlogPost }}>
+    <BlogContext.Provider value={{ data: blogs, addBlogPost, deleteBlogPost, editBlogPost }}>
       {children}
     </BlogContext.Provider>
   );

@@ -11,18 +11,21 @@ import BlogContext from "../context/BlogContext";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default function EditScreen({ navigation }) {
-  const { data, addBlogPost } = useContext(BlogContext);
-  console.log(data);
+  const { data, editBlogPost } = useContext(BlogContext);
+  //   console.log(data);
+
+  const blog = data.find((blog) => blog.id === navigation.getParam("id"));
+  console.log(blog);
 
   const [titleError, settitleError] = useState(null);
   const [bodyError, setbodyError] = useState(null);
 
-  const [title, setTitle] = useState(null);
-  const [body, setBody] = useState(null);
+  const [title, setTitle] = useState(blog.Title);
+  const [body, setBody] = useState(blog.Body);
 
   const submitHandler = (title, body) => {
     if (title && body) {
-      addBlogPost([title, body]);
+      editBlogPost([blog.id,title, body]);
       //   Alert.prompt("Blog is added ✅","Continue");
       //   Alert.alert("Success", "Blog is added ✅");
       //   setTimeout(() => {
@@ -58,7 +61,7 @@ export default function EditScreen({ navigation }) {
         </View>
       ) : null}
       <View style={styles.formContainer}>
-        <Text style={styles.heading}>Add New Blog</Text>
+        <Text style={styles.heading}>Edit Blog</Text>
         <View style={styles.inputContainer}>
           <Text style={styles.label}>Title</Text>
           <TextInput
@@ -67,6 +70,7 @@ export default function EditScreen({ navigation }) {
             autoCompleteType="off"
             style={styles.input}
             onChangeText={(text) => setTitle(text)}
+            value={title}
           />
           {titleError ? <Text style={styles.error}> {titleError} </Text> : null}
         </View>
@@ -75,6 +79,7 @@ export default function EditScreen({ navigation }) {
           <TextInput
             style={styles.input}
             onChangeText={(text) => setBody(text)}
+            value={body}
           />
           {bodyError ? <Text style={styles.error}> {bodyError} </Text> : null}
         </View>
@@ -84,7 +89,7 @@ export default function EditScreen({ navigation }) {
           style={styles.btnContainer}
         >
           <View style={styles.btn}>
-            <Text style={styles.btnText}>Submit</Text>
+            <Text style={styles.btnText}>Save Changes</Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -176,7 +181,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: "white",
     letterSpacing: 4,
-    textTransform: "uppercase",
     fontWeight: "bold",
     fontFamily: "Roboto",
   },
