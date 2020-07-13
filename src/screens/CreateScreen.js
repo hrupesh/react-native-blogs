@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { StyleSheet, Text, View, TextInput } from "react-native";
 import BlogContext from "../context/BlogContext";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default function CreateScreen() {
   const { data, addBlogPost } = useContext(BlogContext);
@@ -18,6 +19,11 @@ export default function CreateScreen() {
             <Text style={styles.label}>Body</Text>
             <TextInput  style={styles.input}  />
         </View>
+        <TouchableOpacity activeOpacity={0.6} style={styles.btnContainer}>
+            <View style={styles.btn}>
+                <Text  style={styles.btnText}>Submit</Text>
+            </View>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -45,7 +51,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#eee",
     marginVertical: 15,
     paddingVertical: 25,
-    borderRadius:10
+    borderRadius:10,
+    elevation:10
   },
   inputContainer:{
      padding:25
@@ -62,5 +69,22 @@ const styles = StyleSheet.create({
       marginLeft:5,
       borderBottomColor:'#512DA8',
       borderBottomWidth:2,
+  },
+  btn:{
+      marginTop:50,
+      margin:25,
+      backgroundColor:'#512DF8',
+      padding:10,
+      borderRadius:25,
+      elevation:10,
+  },
+  btnText:{
+      textAlign:'center',
+      fontSize:18,
+      color:'white',
+      letterSpacing:4,
+      textTransform:'uppercase',
+      fontWeight:'bold'
   }
+
 });
