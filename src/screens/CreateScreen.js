@@ -1,9 +1,16 @@
 import React, { useContext, useState } from "react";
-import { StyleSheet, Text, View, TextInput, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  ScrollView,
+  Alert,
+} from "react-native";
 import BlogContext from "../context/BlogContext";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-export default function CreateScreen() {
+export default function CreateScreen({ navigation }) {
   const { data, addBlogPost } = useContext(BlogContext);
   console.log(data);
 
@@ -16,12 +23,20 @@ export default function CreateScreen() {
   const submitHandler = (title, body) => {
     if (title && body) {
       addBlogPost([title, body]);
+      Alert.alert("Success", "Blog is added ✅");
+      setTimeout(() => {
+        navigation.navigate("Index");
+      }, 1000);
     }
     if (!title) {
       settitleError("Title is required * ");
+    } else {
+      settitleError(null);
     }
     if (!body) {
-      settitleError("Body is required * ");
+      setbodyError("Body is required * ");
+    } else {
+      setbodyError(null);
     }
   };
 
@@ -46,7 +61,7 @@ export default function CreateScreen() {
             style={styles.input}
             onChangeText={(text) => setTitle(text)}
           />
-          <Text style={styles.error}> Title must not be empty </Text>
+          {titleError ? <Text style={styles.error}> {titleError} </Text> : null}
         </View>
         <View style={styles.inputContainer}>
           <Text style={styles.label}>Body</Text>
@@ -54,7 +69,7 @@ export default function CreateScreen() {
             style={styles.input}
             onChangeText={(text) => setBody(text)}
           />
-          <Text style={styles.error}> Body must not be empty </Text>
+          {bodyError ? <Text style={styles.error}> {bodyError} </Text> : null}
         </View>
         <TouchableOpacity
           activeOpacity={0.6}
