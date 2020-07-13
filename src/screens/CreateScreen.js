@@ -10,6 +10,12 @@ export default function CreateScreen() {
   const [title, setTitle] = useState(null);
   const [body, setBody] = useState(null);
 
+  const submitHandler = (title, body) => {
+    if (title && body) {
+      addBlogPost([title, body]);
+    }
+  };
+
   return (
     <ScrollView style={styles.container}>
       {title || body ? (

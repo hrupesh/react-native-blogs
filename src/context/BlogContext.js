@@ -18,8 +18,8 @@ export const BlogProvider = ({ children }) => {
           ...state,
           {
             id: "" + Math.floor(Math.random() * 99999999),
-            Title: `Blog ${state.length + 1}`,
-            Body: `Body for blog ${state.length + 1}`,
+            Title: action.payload[0],
+            Body: action.payload[1],
           },
         ];
       case "deleteBlog":
