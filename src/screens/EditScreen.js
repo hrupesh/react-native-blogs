@@ -25,7 +25,7 @@ export default function EditScreen({ navigation }) {
 
   const submitHandler = (title, body) => {
     if (title && body) {
-      editBlogPost([blog.id,title, body]);
+      editBlogPost([blog.id, title, body]);
       //   Alert.prompt("Blog is added ✅","Continue");
       //   Alert.alert("Success", "Blog is added ✅");
       //   setTimeout(() => {
@@ -33,8 +33,11 @@ export default function EditScreen({ navigation }) {
       //   }, 1000);
       Alert.alert(
         "Suceess",
-        "Blog is Added ✅",
-        [{ text: "OK", onPress: () => navigation.navigate("Index") }],
+        "Changes Saved ✅",
+        [
+          { text: "Continue Editing", onPress: () => null },
+          { text: "Go To Home", onPress: () => navigation.navigate("Index") },
+        ],
         { cancelable: false }
       );
     }

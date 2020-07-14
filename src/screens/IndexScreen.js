@@ -29,7 +29,7 @@ export default function IndexScreen({ navigation }) {
               }
             >
               <View style={styles.blog}>
-                <View>
+                <View style={{ width:'70%' }}>
                   <Text style={styles.title}>{item.Title}</Text>
                   <Text style={styles.body}>{item.Body}</Text>
                 </View>

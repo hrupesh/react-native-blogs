@@ -1,5 +1,12 @@
 import React, { useContext } from "react";
-import { StyleSheet, Text, View, Button, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  TouchableOpacity,
+  Alert,
+} from "react-native";
 import BlogContext from "../context/BlogContext";
 
 export default function ViewBlog({ navigation }) {
@@ -14,11 +21,31 @@ export default function ViewBlog({ navigation }) {
 
   // console.log(blog);
 
+  const deleteandNavigate = () => {
+    deleteBlogPost;
+  };
+
   const deletethisBlog = () => {
-    navigation.navigate("Index");
-    setTimeout(() => {
-      deleteBlogPost(blog.id);
-    }, 1000);
+    // navigation.navigate("Index");
+    // setTimeout(() => {
+    //   deleteBlogPost(blog.id);
+    // }, 1000);
+    Alert.alert(
+      "Delete Blog ❌",
+      "Are you sure?",
+      [
+        { text: "No", onPress: () => null },
+        {
+          text: "Sure!",
+          onPress: () =>
+            navigation.navigate("Index") &&
+            setTimeout(() => {
+              deleteBlogPost(blog.id);
+            }, 600),
+        },
+      ],
+      { cancelable: false }
+    );
   };
 
   return (
