@@ -11,12 +11,12 @@ export default function IndexScreen({ navigation }) {
   const blogs = data;
   //   console.log(blogs);
 
-  const result = async () => {
-    const r = await jsonServer.get("/blogPosts");
-    console.log(r);
-  };
+  // const result = async () => {
+  //   const { data } = await jsonServer.get("/blogPosts");
+  //   console.log(data);
+  // };
 
-  result();
+  // result();
 
   return (
     <View style={styles.container}>
