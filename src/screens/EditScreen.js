@@ -32,7 +32,7 @@ export default function EditScreen({ navigation }) {
       //     navigation.navigate("Index");
       //   }, 1000);
       Alert.alert(
-        "Suceess",
+        "Success",
         "Changes Saved ✅",
         [
           { text: "Continue Editing", onPress: () => null },
