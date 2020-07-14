@@ -15,6 +15,10 @@ export default function IndexScreen({ navigation }) {
       {/* <Text>Index Screen works! </Text> */}
       <FlatList
         showsVerticalScrollIndicator={false}
+        scrollToOverflowEnabled={true}
+        overScrollMode="always"
+        nestedScrollEnabled
+        stickyHeaderIndices={[0]}
         style={styles.list}
         data={blogs}
         keyExtractor={(blog) => blog.id}
@@ -29,7 +33,7 @@ export default function IndexScreen({ navigation }) {
               }
             >
               <View style={styles.blog}>
-                <View style={{ width:'70%' }}>
+                <View style={{ width: "70%" }}>
                   <Text style={styles.title}>{item.Title}</Text>
                   <Text style={styles.body}>{item.Body}</Text>
                 </View>
@@ -41,7 +45,7 @@ export default function IndexScreen({ navigation }) {
                   <AntDesign
                     style={styles.deleteIcon}
                     name="delete"
-                    size={40}
+                    size={36}
                     color="tomato"
                   />
                 </TouchableOpacity>
@@ -116,16 +120,18 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: "#444",
+    backgroundColor: "#673AFF",
+    // paddingBottom:5
   },
   list: {
     padding: 25,
+    marginBottom: 0,
   },
   blog: {
     justifyContent: "space-between",
     alignItems: "center",
     padding: 20,
-    backgroundColor: "#000",
+    backgroundColor: "#eee",
     marginBottom: 10,
     borderRadius: 10,
     shadowColor: "#000",
@@ -134,18 +140,18 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.8,
     shadowRadius: 5,
-    elevation: 6,
+    elevation: 10,
     flexDirection: "row",
   },
   title: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: "bold",
     letterSpacing: 1,
     paddingBottom: 10,
-    color: "white",
+    // color: "white",
   },
   body: {
-    color: "white",
+    color: "#666",
     fontSize: 16,
     letterSpacing: 0.5,
   },
@@ -155,7 +161,7 @@ const styles = StyleSheet.create({
       height: 0,
     },
     textShadowRadius: 2,
-    borderWidth: 1,
+    borderWidth: 3,
     borderColor: "tomato",
     borderRadius: 50,
     padding: 10,
@@ -171,6 +177,6 @@ const styles = StyleSheet.create({
     textShadowOffset: {
       height: 0,
     },
-    textShadowRadius: 2,
+    textShadowRadius: 0.5,
   },
 });
