@@ -3,12 +3,20 @@ import { StyleSheet, Text, View } from "react-native";
 import BlogContext from "../context/BlogContext";
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 import { Ionicons, AntDesign, Feather } from "@expo/vector-icons";
+import jsonServer from "../api/jsonServer";
 
 export default function IndexScreen({ navigation }) {
   const { data, addBlogPost, deleteBlogPost } = useContext(BlogContext);
   //   console.log(data);
   const blogs = data;
   //   console.log(blogs);
+
+  const result = async () => {
+    const r = await jsonServer.get("/blogPosts");
+    console.log(r);
+  };
+
+  result();
 
   return (
     <View style={styles.container}>
