@@ -36,7 +36,7 @@ export default function EditScreen({ navigation }) {
         "Changes Saved ✅",
         [
           { text: "Continue Editing", onPress: () => null },
-          { text: "Go To Home", onPress: () => navigation.navigate("Index") },
+          { text: "Done", onPress: () => navigation.pop() },
         ],
         { cancelable: false }
       );
