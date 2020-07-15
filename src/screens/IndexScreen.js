@@ -47,13 +47,13 @@ export default function IndexScreen({ navigation }) {
               }
             >
               <View style={styles.blog}>
-                <View style={{ width: "70%" }}>
+                {/* <View style={{ width: "100%" }}> */}
                   <Text style={styles.title}>{item.Title}</Text>
                   <Text style={styles.body}>{item.Body}</Text>
-                </View>
+                {/* </View> */}
                 <TouchableOpacity
                   style={styles.deleteIconContainer}
-                  activeOpacity={0}
+                  activeOpacity={0.6}
                   onPress={() => deleteBlogPost(item.id)}
                 >
                   <AntDesign
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.8,
     shadowRadius: 5,
-    elevation: 10,
+    elevation: 0,
     flexDirection: "row",
   },
   title: {
@@ -183,6 +183,8 @@ const styles = StyleSheet.create({
     width: 80,
     alignItems: "center",
     justifyContent: "center",
+    zIndex:99,
+    elevation:100
   },
   deleteIcon: {
     // position: "absolute",
