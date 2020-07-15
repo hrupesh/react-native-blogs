@@ -54,14 +54,13 @@ export default function IndexScreen({ navigation }) {
                 <TouchableOpacity
                   style={styles.deleteIconContainer}
                   activeOpacity={0.6}
-                  
+                  onPress={() => deleteBlogPost(item.id)}
                 >
                   <AntDesign
                     style={styles.deleteIcon}
                     name="delete"
                     size={36}
                     color="tomato"
-                    onPress={() => deleteBlogPost(item.id)}
                   />
                 </TouchableOpacity>
               </View>
