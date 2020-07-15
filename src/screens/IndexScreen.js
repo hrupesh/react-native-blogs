@@ -16,9 +16,13 @@ export default function IndexScreen({ navigation }) {
   useEffect(() => {
     getBlogPosts();
 
-    navigation.addListener("didFocus", () => {
+    const listener = navigation.addListener("didFocus", () => {
       getBlogPosts();
     });
+
+    return () => {
+      listener.remove();
+    };
   }, []);
 
   // const result = async () => {
@@ -47,7 +51,7 @@ export default function IndexScreen({ navigation }) {
               }
             >
               <View style={styles.blog}>
-                <View style={{  }}>
+                <View style={{}}>
                   <Text style={styles.title}>{item.Title}</Text>
                   <Text style={styles.body}>{item.Body}</Text>
                 </View>
@@ -183,8 +187,8 @@ const styles = StyleSheet.create({
     width: 80,
     alignItems: "center",
     justifyContent: "center",
-    zIndex:99,
-    elevation:100
+    zIndex: 99,
+    elevation: 100,
   },
   deleteIcon: {
     // position: "absolute",
