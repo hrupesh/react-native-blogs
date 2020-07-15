@@ -45,4 +45,3 @@ export default () => {
   );
 };
 
-console.log("Completed!");
