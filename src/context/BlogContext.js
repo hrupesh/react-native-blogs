@@ -26,7 +26,8 @@ export const BlogProvider = ({ children }) => {
         // ));
         return action.payload;
       case "deleteBlog":
-        return state.filter((state) => state.id !== action.payload);
+        // return state.filter((state) => state.id !== action.payload);
+        return action.payload;
       default:
         return state;
     }
@@ -45,8 +46,10 @@ export const BlogProvider = ({ children }) => {
     dispatch({ type: "addBlog", payload: data });
   };
 
-  const deleteBlogPost = (id) => {
-    dispatch({ type: "deleteBlog", payload: id });
+  const deleteBlogPost = async (id) => {
+    await jsonServer.delete(`/blogPosts/${id}`);
+    const { data } = await jsonServer.get("/blogPosts");
+    dispatch({ type: "deleteBlog", payload: data });
   };
 
   const editBlogPost = async ([id, title, body]) => {
