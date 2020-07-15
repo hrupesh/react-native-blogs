@@ -17,14 +17,7 @@ export const BlogProvider = ({ children }) => {
       case "getBlogs":
         return action.payload;
       case "addBlog":
-        return [
-          ...state,
-          {
-            id: "" + Math.floor(Math.random() * 99999999),
-            Title: action.payload[0],
-            Body: action.payload[1],
-          },
-        ];
+        return action.payload;
       case "editBlog":
         return (state = state.map((p) =>
           p.id === action.payload[0]
@@ -45,10 +38,10 @@ export const BlogProvider = ({ children }) => {
     dispatch({ type: "getBlogs", payload: data });
   };
 
-  
-
-  const addBlogPost = ([title, body]) => {
-    dispatch({ type: "addBlog", payload: [title, body] });
+  const addBlogPost = async ([title, body]) => {
+    await jsonServer.post("/blogPosts", { Title: title, Body: body });
+    const { data } = await jsonServer.get("blogPosts");
+    dispatch({ type: "addBlog", payload: data });
   };
 
   const deleteBlogPost = (id) => {
