@@ -47,20 +47,21 @@ export default function IndexScreen({ navigation }) {
               }
             >
               <View style={styles.blog}>
-                {/* <View style={{ width: "100%" }}> */}
+                <View style={{  }}>
                   <Text style={styles.title}>{item.Title}</Text>
                   <Text style={styles.body}>{item.Body}</Text>
-                {/* </View> */}
+                </View>
                 <TouchableOpacity
                   style={styles.deleteIconContainer}
                   activeOpacity={0.6}
-                  onPress={() => deleteBlogPost(item.id)}
+                  
                 >
                   <AntDesign
                     style={styles.deleteIcon}
                     name="delete"
                     size={36}
                     color="tomato"
+                    onPress={() => deleteBlogPost(item.id)}
                   />
                 </TouchableOpacity>
               </View>
