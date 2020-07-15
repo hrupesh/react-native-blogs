@@ -19,11 +19,12 @@ export const BlogProvider = ({ children }) => {
       case "addBlog":
         return action.payload;
       case "editBlog":
-        return (state = state.map((p) =>
-          p.id === action.payload[0]
-            ? { ...p, Title: action.payload[1], Body: action.payload[2] }
-            : p
-        ));
+        // return (state = state.map((p) =>
+        //   p.id === action.payload[0]
+        //     ? { ...p, Title: action.payload[1], Body: action.payload[2] }
+        //     : p
+        // ));
+        return action.payload;
       case "deleteBlog":
         return state.filter((state) => state.id !== action.payload);
       default:
@@ -48,8 +49,11 @@ export const BlogProvider = ({ children }) => {
     dispatch({ type: "deleteBlog", payload: id });
   };
 
-  const editBlogPost = ([id, title, body]) => {
-    dispatch({ type: "editBlog", payload: [id, title, body] });
+  const editBlogPost = async ([id, title, body]) => {
+    await jsonServer.put(`/blogPosts/${id}`, { Title: title, Body: body });
+    const { data } = await jsonServer.get("blogPosts");
+    dispatch({ type: "editBlog", payload: data });
+    // alert("Edited");
   };
 
   return (
