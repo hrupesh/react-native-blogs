@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
 import jsonServer from "../api/jsonServer";
 
 const BlogContext = React.createContext();
@@ -7,13 +7,15 @@ export const BlogProvider = ({ children }) => {
   const blogPosts = [
     {
       id: "" + Math.floor(Math.random() * 99999999),
-      Title: "Blog 1",
-      Body: "Body for blog 1",
+      Title: "Loading.......",
+      Body: "Please Wait.....",
     },
   ];
 
   const blogReducer = (state, action) => {
     switch (action.type) {
+      case "getBlogs":
+        return action.payload;
       case "addBlog":
         return [
           ...state,
@@ -36,11 +38,14 @@ export const BlogProvider = ({ children }) => {
     }
   };
 
-  const [blogs, dispatch] = useReducer(blogReducer, blogPosts);
+  const [blogs, dispatch] = useReducer(blogReducer, []);
 
-  const getBlogPosts = () => {
-    dispatch({ type: "getBlogs" });
+  const getBlogPosts = async () => {
+    const { data } = await jsonServer.get("blogPosts");
+    dispatch({ type: "getBlogs", payload: data });
   };
+
+  
 
   const addBlogPost = ([title, body]) => {
     dispatch({ type: "addBlog", payload: [title, body] });
@@ -56,7 +61,13 @@ export const BlogProvider = ({ children }) => {
 
   return (
     <BlogContext.Provider
-      value={{ data: blogs, addBlogPost, deleteBlogPost, editBlogPost }}
+      value={{
+        data: blogs,
+        addBlogPost,
+        deleteBlogPost,
+        editBlogPost,
+        getBlogPosts,
+      }}
     >
       {children}
     </BlogContext.Provider>

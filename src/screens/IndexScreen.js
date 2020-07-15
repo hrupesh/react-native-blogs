@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import BlogContext from "../context/BlogContext";
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
@@ -6,10 +6,16 @@ import { Ionicons, AntDesign, Feather } from "@expo/vector-icons";
 import jsonServer from "../api/jsonServer";
 
 export default function IndexScreen({ navigation }) {
-  const { data, addBlogPost, deleteBlogPost } = useContext(BlogContext);
+  const { data, addBlogPost, deleteBlogPost, getBlogPosts } = useContext(
+    BlogContext
+  );
   //   console.log(data);
   const blogs = data;
   //   console.log(blogs);
+
+  useEffect(() => {
+    getBlogPosts();
+  }, []);
 
   // const result = async () => {
   //   const { data } = await jsonServer.get("/blogPosts");
@@ -23,10 +29,6 @@ export default function IndexScreen({ navigation }) {
       {/* <Text>Index Screen works! </Text> */}
       <FlatList
         showsVerticalScrollIndicator={false}
-        scrollToOverflowEnabled={true}
-        overScrollMode="always"
-        nestedScrollEnabled
-        stickyHeaderIndices={[0]}
         style={styles.list}
         data={blogs}
         keyExtractor={(blog) => blog.id}
