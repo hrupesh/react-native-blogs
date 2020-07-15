@@ -15,6 +15,10 @@ export default function IndexScreen({ navigation }) {
 
   useEffect(() => {
     getBlogPosts();
+
+    navigation.addListener("didFocus", () => {
+      getBlogPosts();
+    });
   }, []);
 
   // const result = async () => {
