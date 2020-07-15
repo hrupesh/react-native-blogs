@@ -13,7 +13,7 @@ const navigator = createStackNavigator(
     Index: IndexScreen,
     ViewBlog: ViewBlog,
     Create: CreateScreen,
-    Edit: EditScreen
+    Edit: EditScreen,
   },
   {
     initialRouteName: "Index",
@@ -21,7 +21,7 @@ const navigator = createStackNavigator(
       title: "Blogs ✍🏽",
       headerStyle: {
         backgroundColor: "#111",
-        height:100
+        height: 100,
       },
       headerTintColor: "#fff",
       headerTitleStyle: {
@@ -44,3 +44,5 @@ export default () => {
     </BlogProvider>
   );
 };
+
+console.log("Completed!");
