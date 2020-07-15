@@ -46,3 +46,4 @@ export default () => {
 };
 
 console.log("Completed!");
+console.log("Completed!");
